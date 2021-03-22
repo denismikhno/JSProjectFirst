@@ -2,6 +2,30 @@ let aVar = 'str\'';
 let avar = 50;
 var b = 25;
 
+let arr = [1, 2, 3, '5'];
+
+let arr1 = [
+    [12, 15, 20],
+    [20, 26, 55]
+]
+
+arr.push(10,15,20);
+arr.pop();
+console.log(arr);
+
+//arr1[1][1]
+
+//document.write(arrAssoc['name'] + '<br>');
+
+for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr1[i].length; j++) {
+        document.write(arr1[i][j] + '<br>');
+    }
+}
+
+
+//console.log(arr);
+
 //let str = eval('2 + 2 - 2');
 //let str1 = '2' === 2;
 
@@ -24,12 +48,12 @@ var b = 25;
 // }
 
 
-try {
-    alert('start');
-    dfgdgf;
-} catch (e) {
-    document.write('name => ' + e.name + 'mess => ' + e.message + ' stack => ' + e.stack);
-}
+// try {
+//     alert('start');
+//     dfgdgf;
+// } catch (e) {
+//     document.write('name => ' + e.name + 'mess => ' + e.message + ' stack => ' + e.stack);
+// }
 
 
 //alert('end block');
