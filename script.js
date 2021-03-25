@@ -5,26 +5,48 @@ let aVar = 'str\'';
 let avar = 50;
 var b = 25;
 
-let arr = [1, 2, 3, '5'];
+let arr = [
+    50, [352, 250,50], 250, 22, [25,30,60], 62, 38, 580, '20', 'Petya', 'Fed', 'Dima'
+];
 
-let arr1 = [
-    [12, 15, 20],
-    [20, 26, 55]
-]
+// let arr1 = arr.map(function (item, index, array)
+//     {
+//         return item + 25;
+//     }
+// );
 
-arr.push(10,15,20);
-arr.pop();
-console.log(arr);
+let arr1 = arr.flatMap(function (element,key) {return element * 2;});
+
+
+
+
+console.log(arr1);
+
+
+// let aVar = 'str\'';
+// let avar = 50;
+// var b = 25;
+//
+// let arr = [1, 2, 3, '5'];
+//
+// let arr1 = [
+//     [12, 15, 20],
+//     [20, 26, 55]
+// ]
+
+// arr.push(10,15,20);
+// arr.pop();
+// console.log(arr);
 
 //arr1[1][1]
 
 //document.write(arrAssoc['name'] + '<br>');
 
-for (let i = 0; i < arr1.length; i++) {
-    for (let j = 0; j < arr1[i].length; j++) {
-        document.write(arr1[i][j] + '<br>');
-    }
-}
+// for (let i = 0; i < arr1.length; i++) {
+//     for (let j = 0; j < arr1[i].length; j++) {
+//         document.write(arr1[i][j] + '<br>');
+//     }
+// }
 
 
 //console.log(arr);
