@@ -1,4 +1,6 @@
-let aVar = 'str\'';
+let arr5 = [25, 30, 40, 50];
+let res = arr5.filter( function(elem){return elem > 5});
+
 let avar = 50;
 var b = 25;
 
