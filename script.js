@@ -1,28 +1,26 @@
+//let conf = confirm('Тебе есть 18?');
+//document.write(conf);
 
-let num = 50;
+var name = 'Dima';
 
-let str = `АБВГДЕЁЖ ЗИЙКЛМНОПРС ТУФХЦЧШЩЪЫЬЭ ЮЯабвгдеёж зийклмнопрсту фхцчшщъыьэюя`;
-
-let str1 = str[1];
-str[1] = 'i';
-
-let str2 = 'Hello';
-// let str3 = 'hello';
-// let res = str2.localeCompare(str3);
-// let res1 = str2 === str3;
-
-
-let numStr = num;
-
-let arr = str.split(' ');
-//let subStr = str.substring(0,15);
+// (function() {
+//     var name = 'Petr';
+//     console.log(window.name);
+//         alert(name) ;
+//
+// }());
 
 
-// for (let i = 0; i<str.length; i++){
-//     document.write(`<div>code =>   ${str.charCodeAt(i)}</div><br>`);
-// }
-
-console.log(arr);
+var surName = 'Petr';
 
 
-//alert(numStr);
+function increes(arr, num) {
+    let res = [];
+    for (let i = 0; i < arr.length; i++) {
+       res.push(arr[i] + num);
+    }
+    return res;
+
+}
+
+console.log(increes([5,20,28,30,55],50));
