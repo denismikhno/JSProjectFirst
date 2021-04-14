@@ -1,19 +1,29 @@
-.page-card{
+.card {
     width: 100px;
     height: 150px;
     padding: 20px;
-    background: #336699;
-    margin: 3px;
-
+    background: gray;
+    margin: 10px;
 }
 
-.page-card .img{
+.card-img {
     width: 100px;
     height: 100px;
     background-size: cover;
+    display: block;
+    margin: auto;
 }
 
-#page{
+.card-name {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.card-desc {
+    text-align: center;
+}
+
+#cards {
     display: flex;
     flex-wrap: wrap;
 }
