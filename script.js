@@ -1,136 +1,41 @@
-// function PageCart(name, url) {
-//     this.name = name;
-//     this.url = url;
-//     this.printHtml = function () {
-//         return `
-//              <div class="page-card">
-//                 <div class="img" style="background-image: url(${this.url})"></div>
-//                 <div class="name">${this.name}</div>
-//              </div>
-//              `;
-//     }
-// }
-//
-// let page = {
-//     // cats:[new PageCart('Vasya', 'https://www.wallpaperflare.com/static/642/294/549/cat-grass-leaves-autumn-wallpaper.jpg')],
-//     cats: [],
-//
-//     addCard: function () {
-//         let name = document.getElementById('page-name');
-//         let url = document.getElementById('page-url');
-//         this.cats.push(new PageCart(name.value, url.value));
-//         this.showCats();
-//     },
-//
-//     showCats: function () {
-//         let view = document.getElementById('page');
-//         view.innerHTML = '';
-//
-//         for (let i in this.cats) {
-//             view.innerHTML += this.cats[i].printHtml();
-//         }
-//
-//     }
-// };
-
-function Runner(name) {
+function Cards(name, desc, url, width, height, bgcolor) {
     this.name = name;
-    this.speed = 0;
-
-
-
-    this.stop = function () {
-        this.speed = 0;
+    this.desc = desc;
+    this.url = url;
+    this.width = width;
+    this.height = height;
+    this.bgColor = bgcolor;
+    this.printCard = function () {
+        return `
+            <div class="card" style="background: ${this.bgColor}; width: ${this.width}px; height: ${this.height}px">
+                <div class="card-img" style="background-image: url(${this.url}); width: ${this.width}px; height: ${this.height - 50}px" ></div>
+                <div class="card-name">${this.name}</div>
+                <div class="card-desc">${this.desc}</div>
+            </div>     
+        `;
     }
+} // class Cards
 
-    this.info = function () {
-        document.write('<hr>');
-        document.write(`Бегун - ${this.name}`);
-        if (this.speed > 0) document.write(` бежит со скоростью - ${this.speed}`);
-        else document.write(` стоит`);
+let main = {
 
-        document.write('<hr>');
+    cards: [],
 
+    createCard: function () {
+        let name = document.getElementById('name');
+        let desc = document.getElementById('desc');
+        let url = document.getElementById('url');
+        let width = document.getElementById('width');
+        let height = document.getElementById('height');
+        let bgcolor = document.getElementById('bgcolor');
+        this.cards.push(new Cards(name.value, desc.value, url.value, width.value, height.value, bgcolor.value));
+        this.showCards();
+    },
+
+    showCards: function () {
+        let view = document.getElementById('cards');
+        view.innerHTML = '';
+        for (let i = 0; i < this.cards.length; i++) {
+            view.innerHTML += this.cards[i].printCard();
+        }
     }
-
-}
-
-Runner.prototype.acceleration = function () {
-    this.speed ++;
-}
-
-
-// let vasya = new Runner('Vasya');
-//
-// vasya.info();
-// vasya.acceleration();
-// vasya.info();
-// vasya.acceleration();
-// vasya.info();
-// vasya.stop();
-// vasya.info();
-
-function MotoRunner(name, moto) {
-
-    this.moto = moto;
-    Runner.call(this, name);
-
-}
-
-MotoRunner.prototype = Object.create(Runner.prototype);
-
-MotoRunner.prototype.info = function () {
-    document.write('<hr>');
-    document.write(`Мотобегун - ${this.name}`);
-    if (this.speed > 0) document.write(` едет со скоростью - ${this.speed}`);
-    else document.write(` стоит`);
-
-    document.write('<hr>');
-}
-
-
-let petya = new MotoRunner('Petya', 'Yamaha');
-
-petya.info();
-petya.acceleration();
-petya.info();
-petya.acceleration();
-petya.info();
-petya.stop();
-petya.info();
-
-let animal = {
-    type: 'anumal',
-    go: function () {
-       alert('Go');
-    }
-}
-
-let rabbit = {
-    __proto__: animal,
-
-    jump: function () {
-        alert('jump');
-    }
-
-}
-
-function A() {
-   alert(this);
-}
-
-// A.call('hello');
-
-function B (val) {
-  this.x = val
-}
-
-let a  = {y:10};
-
-B.call(a, 60);
-
-// console.log(a);
-
-//rabbit.jump();
-
-//alert(rabbit.hasOwnProperty('go'));
+}; // class main
