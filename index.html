@@ -1,13 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="script.js" type="text/javascript"></script>
-<!--    <link rel="stylesheet" href="style.css">-->
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Библиотека</title>
 </head>
 <body>
+Название книги:
+<input type="text" id="book-name">
+Автор:
+<input type="text" id="book-author">
+<button onclick="library.addBook(); library.showBooks()">Добавить</button>
 
+<h1>Добавленные вами книги:</h1>
+<div id="text">
 
+</div>
 </body>
 </html>

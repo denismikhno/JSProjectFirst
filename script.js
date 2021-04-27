@@ -1,28 +1,58 @@
+let library = {
 
-let num = 50;
+    divText: "",
+    bookNameText: "",
+    bookAuthorText: "",
+    books: [],
+    bookID: 1,
 
-let str = `АБВГДЕЁЖ ЗИЙКЛМНОПРС ТУФХЦЧШЩЪЫЬЭ ЮЯабвгдеёж зийклмнопрсту фхцчшщъыьэюя`;
+    addBook: function () {
+        let book = {
+            id: this.bookID,
+            bookName: this.bookNameText.value,
+            bookAuthor: this.bookAuthorText.value,
+        };
 
-let str1 = str[1];
-str[1] = 'i';
+        if (this.bookNameText.value === "" || this.bookAuthorText.value === "") alert("Вы должны обязательно ввести название книги и автора!!!");
+        else {
+            let b = true;
+            for (let  i = 0; i < this.books.length; i++) {
+                if ( this.books[i].bookName.split(" ").join("").toLowerCase() ===
+                    this.bookNameText.value.split(" ").join("").toLowerCase() &&
+                    this.books[i].bookAuthor.split(" ").join("").toLowerCase() ===
+                    this.bookAuthorText.value.split(" ").join("").toLowerCase()
+                ) b = false;
+            }
+            //console.log(b);
+            if (b) {
+                this.books.push(book);
+                this.bookID++;
+                this.bookNameText.value = "";
+                this.bookAuthorText.value = "";
+            }
+            else alert("Такая книга уже существует!!!");
+        }
+    },
 
-let str2 = 'Hello';
-// let str3 = 'hello';
-// let res = str2.localeCompare(str3);
-// let res1 = str2 === str3;
+    showBooks: function () {
+        let str = "";
+        for (let i = 0; i < this.books.length; i++) {
+            str += `<b>Id книги: </b>${this.books[i].id}<br>
+                    <b>Название книги: </b>${this.books[i].bookName}<br>
+                    <b>Автор: </b>${this.books[i].bookAuthor}<br>
+                    -----------------------------------------------<br>
+                    `;
+        }
+        this.divText.innerHTML = str;
+    },
 
+    init: function () {
+        this.divText = document.getElementById('text');
+        this.bookNameText = document.getElementById('book-name');
+        this.bookAuthorText = document.getElementById('book-author');
+    }
+}
 
-let numStr = num;
-
-let arr = str.split(' ');
-//let subStr = str.substring(0,15);
-
-
-// for (let i = 0; i<str.length; i++){
-//     document.write(`<div>code =>   ${str.charCodeAt(i)}</div><br>`);
-// }
-
-console.log(arr);
-
-
-//alert(numStr);
+window.onload = function () {
+    library.init();
+}
